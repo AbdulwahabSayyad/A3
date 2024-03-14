@@ -112,8 +112,6 @@ void MainWindow::startSimulation(){
 
 
 void MainWindow::quitSimulation(){
-    ecs->getElevators().clear();
-    ecs->getFloors().clear();
     delete ecs;
     ecs = nullptr;
     ui->console->clear();

@@ -37,6 +37,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->fpDown, &QPushButton::pressed, this, &MainWindow::onfpButtonClicked);
 
     connect(ui->proc, &QPushButton::clicked, this, &MainWindow::proc);
+    connect(ui->printState, &QPushButton::pressed, this, &MainWindow::printState);
 
 
 }
@@ -58,7 +59,6 @@ void MainWindow::init(int numFloors, int numElevators, int maxWeight){
     for(Elevator* elevator: ecs->getElevators()){
         connect(elevator, &Elevator::printToConsole, this, &MainWindow::printFromClass);
     }
-    connect(ui->printState, &QPushButton::pressed, this, &MainWindow::printState);
     ui->printState->setVisible(true);
 }
 
@@ -112,6 +112,8 @@ void MainWindow::startSimulation(){
 
 
 void MainWindow::quitSimulation(){
+    ecs->getElevators().clear();
+    ecs->getFloors().clear();
     delete ecs;
     ecs = nullptr;
     ui->console->clear();

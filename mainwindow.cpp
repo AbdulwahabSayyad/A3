@@ -12,6 +12,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->fpWidget->setDisabled(true);
     ui->sfWidget->setDisabled(true);
     ui->proc->setVisible(false);
+    ui->printState->setVisible(false);
 
     this->numElevators = 0;
     this->numFloors = 0;
@@ -37,6 +38,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     connect(ui->proc, &QPushButton::clicked, this, &MainWindow::proc);
 
+
 }
 
 MainWindow::~MainWindow()
@@ -56,6 +58,8 @@ void MainWindow::init(int numFloors, int numElevators, int maxWeight){
     for(Elevator* elevator: ecs->getElevators()){
         connect(elevator, &Elevator::printToConsole, this, &MainWindow::printFromClass);
     }
+    connect(ui->printState, &QPushButton::pressed, this, &MainWindow::printState);
+    ui->printState->setVisible(true);
 }
 
 void MainWindow::startSimulation(){
@@ -118,6 +122,7 @@ void MainWindow::quitSimulation(){
     ui->fpWidget->setDisabled(true);
     ui->sfWidget->setDisabled(true);
     ui->proc->setVisible(false);
+    ui->printState->setVisible(false);
 
     this->numElevators = 0;
     this->numFloors = 0;
@@ -291,7 +296,9 @@ void MainWindow::onepElevatorChanged(){
 }
 
 void MainWindow::proc(){
+    onepElevatorChanged();
     ecs->next();
+
 }
 
 void MainWindow::printFromClass(QString text){
@@ -299,5 +306,10 @@ void MainWindow::printFromClass(QString text){
 }
 
 void MainWindow::onProcClicked(){
+    if(ecs!=NULL && !ui->proc->isVisible())
     ui->proc->click();
+}
+
+void MainWindow::printState(){
+    ecs->printState();
 }

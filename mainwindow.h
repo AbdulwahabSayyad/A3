@@ -25,6 +25,7 @@ public:
     void epSubmitRequest();
     void sfSubmitRequest();
     void proc();
+    void printState();
 
 public slots:
     void printFromClass(QString text);

@@ -15,28 +15,34 @@
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout">
-    <item row="1" column="2">
-     <widget class="QPushButton" name="quitSimulation">
+    <item row="1" column="0">
+     <widget class="QLabel" name="consoleLabel">
+      <property name="font">
+       <font>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
       <property name="text">
-       <string>Quit Simulation</string>
+       <string>Simulation Console</string>
       </property>
      </widget>
     </item>
-    <item row="2" column="0" colspan="3">
+    <item row="2" column="0" colspan="4">
      <widget class="QTextEdit" name="console">
       <property name="readOnly">
        <bool>true</bool>
       </property>
      </widget>
     </item>
-    <item row="1" column="1">
-     <widget class="QPushButton" name="proc">
+    <item row="1" column="3">
+     <widget class="QPushButton" name="quitSimulation">
       <property name="text">
-       <string>Proc</string>
+       <string>Quit Simulation</string>
       </property>
      </widget>
     </item>
-    <item row="0" column="2">
+    <item row="0" column="3">
      <layout class="QVBoxLayout" name="verticalLayout_12">
       <item>
        <widget class="QWidget" name="epWidget" native="true">
@@ -178,23 +184,21 @@
       </item>
      </layout>
     </item>
-    <item row="0" column="1">
-     <spacer name="horizontalSpacer">
-      <property name="orientation">
-       <enum>Qt::Horizontal</enum>
+    <item row="1" column="1">
+     <widget class="QPushButton" name="proc">
+      <property name="text">
+       <string>Proc</string>
       </property>
-      <property name="sizeType">
-       <enum>QSizePolicy::Fixed</enum>
-      </property>
-      <property name="sizeHint" stdset="0">
-       <size>
-        <width>40</width>
-        <height>20</height>
-       </size>
-      </property>
-     </spacer>
+     </widget>
     </item>
-    <item row="0" column="0">
+    <item row="1" column="2">
+     <widget class="QPushButton" name="printState">
+      <property name="text">
+       <string>Print State</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="0" colspan="2">
      <layout class="QVBoxLayout" name="verticalLayout">
       <item>
        <widget class="QWidget" name="apWidget" native="true">
@@ -290,7 +294,7 @@
            </item>
           </layout>
          </item>
-         <item alignment="Qt::AlignHCenter">
+         <item alignment="Qt::AlignLeft">
           <widget class="QPushButton" name="apSubmit">
            <property name="text">
             <string>Start Simulation</string>
@@ -394,7 +398,7 @@
            </item>
           </layout>
          </item>
-         <item alignment="Qt::AlignHCenter">
+         <item alignment="Qt::AlignLeft">
           <widget class="QPushButton" name="sfSubmit">
            <property name="text">
             <string>Submit</string>
@@ -405,19 +409,6 @@
        </widget>
       </item>
      </layout>
-    </item>
-    <item row="1" column="0">
-     <widget class="QLabel" name="consoleLabel">
-      <property name="font">
-       <font>
-        <weight>75</weight>
-        <bold>true</bold>
-       </font>
-      </property>
-      <property name="text">
-       <string>Simulation Console</string>
-      </property>
-     </widget>
     </item>
    </layout>
   </widget>

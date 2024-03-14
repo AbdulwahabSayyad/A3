@@ -30,6 +30,7 @@ public:
     int getNumElevators();
     int getNumFloors();
     void next();
+    void printState();
 
     QVector<Elevator*>& getElevators();
     QVector<Request*>& getRequests();

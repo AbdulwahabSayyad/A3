@@ -189,8 +189,15 @@ void ECS::next(){
             elevator->setOverloadStatus(false);
         }
         if(elevator->getObstacleStatus()){
-            emit printToConsole("ELEVATOR "+QString::number(elevator->getElevatorID())+" OBSTACLE REMOVED, I WON'T BEEP ANYMORE I PROMISE.\n");
             elevator->setObstacleStatus(false);
         }
+    }
+}
+
+void ECS::printState(){
+    emit printToConsole("\n--------------\n");
+    emit printToConsole("Current State:\n");
+    for(Elevator* elevator: getElevators()){
+        emit printToConsole("E #" + QString::number(elevator->getElevatorID()) + " | F #" +QString::number(elevator->getCurrFloor())+ "\n" );
     }
 }

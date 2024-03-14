@@ -1,0 +1,4 @@
+#ifndef SAFETYFEATURES_H
+#define SAFETYFEATURES_H
+
+#endif // SAFETYFEATURES_H
